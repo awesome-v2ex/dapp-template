@@ -29,7 +29,7 @@ impl Metadata for ContractMetadata {
     type State = Out<State>;
 }
 
-pub type State = Vec<(ActorId, u128)>;
+pub type State = Vec<(ActorId, i128)>;
 
 /// Replies with [`Pong`](PingPong::Pong) if received [`Ping`](PingPong::Ping).
 #[derive(Encode, Decode, TypeInfo, Debug, PartialEq, Eq)]
@@ -67,5 +67,5 @@ pub enum StateQueryReply {
     /// Returned from [`StateQuery::Pingers`].
     Pingers(Vec<ActorId>),
     /// Returned from [`StateQuery::PingCount`].
-    PingCount(u128),
+    PingCount(i128),
 }
